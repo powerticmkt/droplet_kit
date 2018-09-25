@@ -346,6 +346,24 @@ Actions supported:
 * `client.ssh_keys.delete(id: 'id')`
 * `client.ssh_keys.update(ssh_key, id: 'id')`
 
+## Project resource
+
+```ruby
+client = DropletKit::Client.new(access_token: 'TOKEN')
+client.projects #=> DropletKit::ProjectResource
+```
+
+Actions supported:
+
+* `client.projects.all()`
+* `client.projects.find_default`
+* `client.projects.find(uuid: 'uuid')`
+* `client.projects.create(DropletKit::Project.new(name: 'name', purpose: 'Service or API'))`
+* `client.projects.update(project, uuid: 'uuid')`
+* `client.projects.delete(uuid: 'uuid')`
+* `client.projects.list_resources(uuid: 'uuid')`
+* `client.projects.assign_resources([DropletKit::Droplet.new(id: 123), "do:space:myspace.com"], uuid: 'uuid')`
+
 ## Tag resource
 
 ```ruby
@@ -360,7 +378,7 @@ Actions supported:
 * `client.tags.create(DropletKit::Tag.new(name: 'name'))`
 * `client.tags.delete(name: 'name')`
 * `client.tags.tag_resources(name: 'name', resources: [{ resource_id => 'droplet_id', resource_type: 'droplet' }])`
-* `client.tags.untag_resources(name 'name', resources: [{ resource_id => 'droplet_id', resource_type: 'droplet' }])`
+* `client.tags.untag_resources(name: 'name', resources: [{ resource_id => 'droplet_id', resource_type: 'droplet' }])`
 
 ## Account resource
 
